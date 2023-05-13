@@ -1,0 +1,6 @@
+-- producto con mas stock
+SELECT p.id, p.nombre_producto, p.stock FROM producto p ORDER BY stock DESC LIMIT 1;
+
+-- producto mas vendido
+
+SELECT p.nombre_producto, SUM(v.cantidad) as cantidad FROM ventas v JOIN producto p ON v.id_producto = p.id GROUP BY v.id_producto ORDER BY SUM(v.cantidad) DESC LIMIT 1;
